@@ -14,7 +14,7 @@
 #define TimerCompareMatch ((F_CPU/(64*SampleRate))-1) 
 
 
-unsigned int SampleRate = 1000;                         // 1000 hz samplerate (1000 samples per second i.e. 1 millisecond between each sample.)
+unsigned int SampleRate = 1000;                         	   // 1000 hz samplerate (1000 samples per second i.e. 1 millisecond between each sample.)
 unsigned int ms = 0;
 unsigned int s = 0;
 unsigned int min = 0;
@@ -32,27 +32,27 @@ int main(void)
 
     while (1) 
     {
-		
-		if(ms==999){                                   	    // if 1000 milliseconds
-			s++;                                        // increment second
-			ms = 0;                                     // reset millisecond counter
-	
-        }
 
-		if(s==59){                                          // if 60 seconds
-			min++;                                      // increment minute
-			s = 0;                                      // reset seconds counter
-		}
+	if(ms==999){                                   	    	    // if 1000 milliseconds
+		s++;                                       	    // increment second
+		ms = 0;                                     	    // reset millisecond counter
 
-		if (min == 59){                                     // if 60 minutes
-			h++;                                        // increment hour
-			min = 0;                                    // reset minutes
-		}
+	}
 
-		if(h == 23 && min == 59 && s == 59){                // if 24 hours
-			h = 0;                                      // reset hours
+	if(s==59){                                          	    // if 60 seconds
+		min++;                                     	    // increment minute
+		s = 0;                                      	    // reset seconds counter
+	}
 
-		}
+	if (min == 59){                                     	    // if 60 minutes
+		h++;                                        	    // increment hour
+		min = 0;                                    	    // reset minutes
+	}
+
+	if(h == 23 && min == 59 && s == 59){              	    // if 24 hours
+		h = 0;                                     	    // reset hours
+
+	}
 	
     }
 }
