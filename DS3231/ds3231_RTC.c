@@ -12,7 +12,7 @@ void RTC_Init(void)
 	I2C_Init();                             // Initialize the I2c module.
 	I2C_Start(DS3231WRITE);					// Start I2C communication
 	
-	I2C_Write(CTRLREG);						// Select the Ds1307 ControlRegister to configure Ds1307
+	I2C_Write(CTRLREG);						// Select the ControlRegister to configure ds3231
 	
 	I2C_Write(0x00);                        // Write 0x00 to Control register to disable SQW-Out
 	
@@ -22,7 +22,7 @@ void RTC_SetDateTime(rtc_t *rtc)
 {
 	I2C_Start(DS3231WRITE);                            // Start I2C communication
 
-	//I2C_Write(DS3231WRITE);      // connect to DS1307 by sending its ID on I2c Bus
+	//I2C_Write(DS3231WRITE);      // connect to DS3231 
 	I2C_Write(0x00); // Request sec RAM address at 00H
 	
 	I2C_Write(rtc->sec);                    // Write sec from RAM address 00H
